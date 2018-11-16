@@ -1,0 +1,22 @@
+query GetTopRepositories($query: String!, $count: Int) {
+  search(query: $query type: REPOSITORY first: $count) {
+    repositoryCount
+    edges {
+      node {
+        ... on Repository {
+          name
+          description
+          stargazers {
+            totalCount
+          }
+          forks {
+            totalCount
+          }
+          owner {
+            login
+          }
+        }
+      }
+    }
+  }
+}

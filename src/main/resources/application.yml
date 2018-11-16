@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/app
+    username: app
+    password: app
+  flyway:
+    schemas:
+      app
+  mail:
+    host: ${MAIL_HOST}
+    port: 465
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: true
+    test-connection: true
+
+github-api:
+  url: https://api.github.com/graphql
+  token: ${GITHUB_API_TOKEN}
+
+issues:
+  first-count: 10
+  max-count: 100
+
+update-watcher:
+  max-batch-count: 10
+  core-pool-size: 4
+  max-pool-size: 6
+  max-task-count-to-run: 5
+
+email:
+  from: ${MAIL_FROM}

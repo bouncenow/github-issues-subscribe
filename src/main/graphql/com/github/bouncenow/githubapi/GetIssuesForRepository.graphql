@@ -1,0 +1,17 @@
+query GetIssues($query: String! $count: Int $after: String) {
+  search(query: $query first: $count type: ISSUE after: $after) {
+    issueCount
+    edges {
+      node {
+        ... on Issue {
+          title
+          bodyText
+          createdAt
+        }
+      }
+    }
+    pageInfo {
+      endCursor
+    }
+  }
+}
